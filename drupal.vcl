@@ -95,7 +95,7 @@ sub vcl_error {
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
   <html>
     <head>
-      <title>"} obj.status " " obj.response {"</title>
+      <title>"} + obj.status + " " + obj.response + {"</title>
       <style type="text/css">
       #page {width: 400px; padding: 10px; margin: 20px auto; border: 1px solid black; background-color: #FFF;}
       p {margin-left:20px;}
@@ -108,9 +108,9 @@ sub vcl_error {
     <p>We're very sorry, but the page could not be loaded properly. This should be fixed very soon, and we apologize for any inconvenience.</p>
     <hr />
     <h4>Debug Info:</h4>
-    <pre>Status: "} obj.status {"
-Response: "} obj.response {"
-XID: "} req.xid {"</pre>
+    <pre>Status: "} + obj.status + {"
+Response: "} + obj.response + {"
+XID: "} + req.xid + {"</pre>
       </div>
     </body>
    </html>
