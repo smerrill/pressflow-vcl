@@ -76,12 +76,6 @@ sub vcl_recv {
   return (lookup);
 }
 
-sub vcl_hash {
-  if (req.http.Cookie) {
-    set req.hash += req.http.Cookie;
-  }
-}
-
 // Strip any cookies before an image/js/css is inserted into cache.
 sub vcl_fetch {
   if (req.url ~ "\.(png|gif|jpg|swf|css|js)$") {
